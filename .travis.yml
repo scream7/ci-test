@@ -1,0 +1,22 @@
+language: go 
+sudo: false 
+
+notifications: 
+  email:
+    recipients:
+      - njhmj820@gmail.com
+  on_success: change
+  on_failure: always
+
+install:
+  - go get github.com/mattn/goveralls 
+  - mkdir -p $GOPATH/src/github.com/scream7
+  - cd $GOPATH/src/github.com/scream7/ci-test
+
+script: 
+    - goveralls -coverprofile=overalls.coverprofile -service=travis-ci -repotoken $COVERALLS_TOKEN
+    - go test -race -coverprofile=coverage.txt -covermode=atomic 
+    - go test ./...
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

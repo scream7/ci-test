@@ -1,1 +1,2 @@
 [![Build Status](https://api.travis-ci.org/scream7/ci-test.svg?branch=master)](https://travis-ci.org/scream7/ci-test)
+[![Go Report Card](https://goreportcard.com/badge/github.com/scream7/ci-test)](https://goreportcard.com/report/github.com/scream7/ci-test)
